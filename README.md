@@ -57,3 +57,9 @@ Vercel: select the `shayyan111/AppleSpace` repository, use **Other** framework, 
 - Database tests: website-manager costs/ERP isolation; anonymous portal denial; publication/hiding; sold stock exclusion; checkout totals, quantity and price rejection; duplicate retry handling.
 - Browser checks passed on desktop and 390px mobile: catalogue filters/sorting, cart quantity cap, checkout submission, portal login, listing edits, photo upload, preservation of unsaved listing text, owner access management and logout. Browser API responses were mocked for interaction tests; the database tests independently exercised real authorization and checkout.
 - Live public REST catalogue request returned HTTP 200. The initial catalogue is intentionally empty until available stock is published.
+
+
+### Storefront visual design
+The storefront uses a dark burgundy identity, a CSS 3D phone concept (back-to-front rotation), animated editorial strip, scroll reveals, responsive product cards, and prominent shop photography. The phone is decorative concept artwork, not an inventory product or an official device render. Animations respect reduced-motion preferences and the homepage has a pause control. Styles are scoped to storefront pages so the website management portal stays legible.
+
+Visual verification covered desktop and mobile widths, scrolling reveals, and reduced motion. Existing catalog, checkout, and manager browser flows still pass with mocked API data; inventory permissions and database functions were unchanged in this design update.
