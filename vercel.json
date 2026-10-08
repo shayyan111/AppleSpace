@@ -1,0 +1,15 @@
+{
+ "headers":[
+  {"source":"/(.*)","headers":[
+   {"key":"X-Content-Type-Options","value":"nosniff"},
+   {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},
+   {"key":"Permissions-Policy","value":"camera=(), microphone=(), geolocation=()"},
+   {"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://ghmofddxpflpopwavysk.supabase.co data:; connect-src 'self' https://ghmofddxpflpopwavysk.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"}
+  ]},
+  {"source":"/(.*).html","headers":[{"key":"Cache-Control","value":"no-cache"}]},
+  {"source":"/","headers":[{"key":"Cache-Control","value":"no-cache"}]},
+  {"source":"/admin.html","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow"}]},
+  {"source":"/database/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow"}]}
+ ],
+ "redirects":[{"source":"/about","destination":"/about.html","permanent":false},{"source":"/about/","destination":"/about.html","permanent":false}]
+}
