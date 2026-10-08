@@ -1,21 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090a0d">
-<meta name="description" content="Visit Apple Space in Rawalpindi. Explore our shop and comfortable inner space for checking your next iPhone.">
-<title>About Us — Apple Space</title><link rel="icon" href="/applespace-logo.png" type="image/png">
+<meta name="description" content="Apple Space — something extraordinary is on its way. Visit us in Rawalpindi.">
+<title>Apple Space — Coming Soon</title>
+<link rel="icon" href="/applespace-logo.png" type="image/png">
 <style>
-:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#090a0d;color:#e7e7ea}*{box-sizing:border-box}body{margin:0}a{color:inherit}header,main,footer{width:min(1180px,calc(100% - 48px));margin:auto}header{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid #ffffff18}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:20px;font-weight:650}.brand img{width:58px;height:58px;object-fit:contain}nav{display:flex;gap:24px}nav a{text-decoration:none;font-size:14px;color:#a3a4ad}nav a[aria-current]{color:#f1f1f3}.intro{padding:76px 0 46px;max-width:800px}.eyebrow{font-size:11px;color:#9fa0ab;letter-spacing:.25em;text-transform:uppercase}h1{font-size:clamp(42px,7vw,78px);letter-spacing:-.055em;line-height:1.04;margin:22px 0}p{line-height:1.75;color:#a7a8b1;font-size:16px}.intro p{max-width:630px}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}figure{margin:0;border-radius:20px;overflow:hidden;background:#14151b;border:1px solid #ffffff15}figure img{width:100%;height:auto;display:block}figcaption{padding:24px}figcaption span{font-size:11px;letter-spacing:.2em;color:#8f909c}h2{font-size:24px;letter-spacing:-.03em;margin:10px 0}figcaption p{font-size:14px;margin:0}.visit{margin:56px 0 72px;padding:36px;border:1px solid #ffffff20;border-radius:20px;background:linear-gradient(130deg,#1b1d24,#111217);display:flex;gap:30px;align-items:center;justify-content:space-between}.visit p{margin:12px 0 0;max-width:500px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:13px 22px;border-radius:99px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;background:#e7e7ea;color:#14151b}.button.secondary{background:transparent;color:#e7e7ea;border:1px solid #ffffff40}.button:hover{filter:brightness(1.12)}a:focus-visible{outline:2px solid #ddd;outline-offset:5px}footer{padding:26px 0;border-top:1px solid #ffffff18;display:flex;justify-content:space-between;color:#8f909b;font-size:12px}footer a{text-decoration:none}.intro,figure,.visit{animation:arrive .9s both}figure:nth-child(2){animation-delay:.15s}@keyframes arrive{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@media(max-width:700px){header,main,footer{width:calc(100% - 32px)}.brand{font-size:17px;gap:6px}.brand img{width:44px;height:44px}nav{gap:16px}.intro{padding-top:50px}.gallery{grid-template-columns:1fr;gap:22px}.visit{padding:25px;flex-direction:column;align-items:flex-start;margin:34px 0 46px}figcaption{padding:22px}footer{gap:18px;flex-wrap:wrap}}@media(prefers-reduced-motion:reduce){*{animation:none!important}}
-</style></head>
+:root{color-scheme:dark;--bg:#090a0d;--silver:#e7e7ea;--muted:#92939b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--silver);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+.stage{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 75% 50% at 50% 43%,#1b1d25 0%,#101116 40%,#090a0d 85%)}
+.stage::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;background:linear-gradient(115deg,transparent 37%,#ffffff15 50%,transparent 63%);transform:translateX(-110%);animation:sweep 2.3s cubic-bezier(.2,.8,.2,1) 1.25s both}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.19;background-image:radial-gradient(#ffffff 0.45px,transparent .65px);background-size:4px 4px;mask-image:radial-gradient(ellipse at center,#0005,transparent 75%)}
+.aura{position:absolute;width:min(70vw,780px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#b2b4c022 0%,#6a70731b 21%,transparent 66%);filter:blur(14px);animation:aura 7s ease-in-out infinite;z-index:-1}
+.ring{position:absolute;width:min(64vw,650px);aspect-ratio:1;border:1px solid #ffffff10;border-radius:50%;opacity:0;animation:ring-in 2.5s 1.8s forwards}
+.ring.two{width:min(86vw,890px);border-color:#ffffff07;animation-delay:2.05s}
+.content{position:relative;z-index:2;text-align:center;padding:3rem 1.1rem;max-width:1100px;width:100%}
+.logo-wrap{position:relative;width:clamp(140px,24vw,225px);height:clamp(140px,24vw,225px);margin:0 auto 1.35rem;display:grid;place-items:center;opacity:0;filter:blur(18px);transform:scale(.68);animation:logo-reveal 1.65s cubic-bezier(.2,.7,.15,1) .25s forwards}
+.logo-wrap img{height:100%;width:100%;object-fit:contain;filter:drop-shadow(0 0 35px #ffffff2a)}
+.logo-fallback{display:none;font-size:2.7rem;font-weight:750;letter-spacing:-.08em}
+.brand{font-size:clamp(.7rem,1.8vw,.94rem);font-weight:650;letter-spacing:.57em;padding-left:.57em;color:#c6c7ce;opacity:0;animation:fade-up 1s 1.45s forwards}
+.divider{height:1px;width:0;margin:1.7rem auto 1.6rem;background:linear-gradient(90deg,transparent,#f2f2f7aa,transparent);animation:line-in 1.3s 1.6s forwards}
+.eyebrow{font-size:clamp(.61rem,1.3vw,.75rem);letter-spacing:.34em;padding-left:.34em;color:#9698a1;opacity:0;animation:fade-up .9s 1.92s forwards}
+.headline{font-size:clamp(3rem,11vw,8.8rem);line-height:.95;letter-spacing:-.07em;font-weight:720;margin:1.35rem auto .6rem;max-width:1100px;background:linear-gradient(115deg,#898a93 0%,#fff 35%,#e0e1e7 55%,#7d808c 100%);background-clip:text;-webkit-background-clip:text;color:transparent;opacity:0;filter:blur(14px);transform:translateY(42px) scale(.96);animation:headline-in 1.3s cubic-bezier(.16,1,.3,1) 2.27s forwards}
+.sub{font-size:clamp(.86rem,2vw,1.1rem);letter-spacing:.01em;color:#9e9fa8;margin:1.65rem auto 2.3rem;opacity:0;animation:fade-up 1s 3.05s forwards}
+.actions{display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap;opacity:0;animation:fade-up 1s 3.45s forwards}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.84rem 1.45rem;border-radius:99px;text-decoration:none;font-size:.83rem;font-weight:600;transition:transform .25s,background .25s,border-color .25s}
+.btn:hover{transform:translateY(-3px)}.btn.primary{color:#111216;background:#e9e9ec}.btn.primary:hover{background:#fff}.btn.secondary{border:1px solid #ffffff35;color:#e9e9ed;background:#ffffff08}.btn.secondary:hover{border-color:#ffffff8c}
+.bottom{position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;display:flex;justify-content:space-between;gap:1rem;align-items:center;color:#70717a;font-size:.66rem;letter-spacing:.17em;z-index:2;opacity:0;animation:fade-up 1s 3.7s forwards}
+@keyframes logo-reveal{to{opacity:1;filter:blur(0);transform:scale(1)}}@keyframes headline-in{to{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}}@keyframes fade-up{from{opacity:0;transform:translateY(19px)}to{opacity:1;transform:translateY(0)}}@keyframes line-in{to{width:105px}}@keyframes aura{50%{transform:scale(1.18);opacity:.55}}@keyframes ring-in{to{opacity:1}}@keyframes sweep{to{transform:translateX(110%)}}
+@media(max-width:600px){.stage{min-height:100svh}.logo-wrap{margin-bottom:.9rem}.divider{margin:1.4rem auto}.headline{margin-top:1.3rem}.bottom{font-size:.5rem;left:1rem;right:1rem;bottom:1rem}.sub{margin:1.5rem auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.logo-wrap,.brand,.eyebrow,.headline,.sub,.actions,.bottom,.ring{opacity:1;filter:none;transform:none}.divider{width:105px}}
+</style>
+</head>
 <body>
-<header><a class="brand" href="/"><img src="/applespace-logo.png" alt=""><span>Apple Space</span></a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/about/" aria-current="page">About Us</a></nav></header>
-<main>
-<section class="intro"><div class="eyebrow">Get to know us</div><h1>Your next iPhone.<br>Your own space.</h1><p>Welcome to Apple Space — a place to explore iPhones and accessories, ask questions, and check your next phone comfortably before you buy.</p></section>
-<section class="gallery" aria-label="Our shop and inner space">
-<figure><a href="/images/shop-exterior.jpg" target="_blank" rel="noopener" aria-label="View full shop exterior photo"><img src="/images/shop-exterior.jpg" alt="Apple Space storefront with iPhones on display behind glass doors" width="1350" height="1800" fetchpriority="high"></a><figcaption><span>01 / OUR SHOP</span><h2>Step into Apple Space.</h2><p>Visit our shop and explore the phones and accessories in person.</p></figcaption></figure>
-<figure><a href="/images/inner-space.jpg" target="_blank" rel="noopener" aria-label="View full inner space photo"><img src="/images/inner-space.jpg" alt="Apple Space inner room with sofas and a desk for comfortably checking phones" width="1800" height="1350" loading="lazy"></a><figcaption><span>02 / THE INNER SPACE</span><h2>Take a seat. Take your time.</h2><p>A comfortable space to sit, talk, and check your phone before making a decision.</p></figcaption></figure>
-</section>
-<section class="visit"><div><div class="eyebrow">Come and see us</div><h2>Find your way to Apple Space.</h2><p>Shop no. 103 &amp; 104, Mezzanine Floor,<br>Noor Mobile Mall, 6th Road, Rawalpindi</p><p><a href="https://wa.me/923345136382">+92 334 5136382</a></p></div><div class="buttons"><a class="button" href="https://maps.app.goo.gl/4wiLtD1nGnnGBKPk8" target="_blank" rel="noopener noreferrer">Find Us ↗</a><a class="button secondary" href="https://wa.me/923345136382" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div></section>
-</main><footer><span>© Apple Space 2026</span><a href="https://www.instagram.com/aspace.pk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></footer>
-</body></html>
+<main class="stage" aria-label="Apple Space Coming Soon">
+  <div class="aura" aria-hidden="true"></div><div class="ring" aria-hidden="true"></div><div class="ring two" aria-hidden="true"></div>
+  <div class="content">
+    <div class="logo-wrap"><img src="/applespace-logo.png" alt="Apple Space logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Apple Space</span></div>
+    <div class="brand">Apple Space</div><div class="divider"></div>
+    <div class="eyebrow">A NEW EXPERIENCE IS COMING</div>
+    <h1 class="headline">COMING<br>SOON.</h1>
+    <p class="sub">Something extraordinary is on its way.</p>
+    <div class="actions"><a class="btn primary" href="/about/">Explore Apple Space &rarr;</a><a class="btn secondary" href="https://wa.me/923345136382" target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a></div>
+  </div>
+  <footer class="bottom"><span>RAWALPINDI, PAKISTAN</span><span>THE NEXT CHAPTER STARTS HERE</span></footer>
+</main>
+</body>
+</html>
