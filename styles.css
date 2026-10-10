@@ -68,3 +68,5 @@ body:not([data-page="home"]) .site-header .nav-links a:hover,body:not([data-page
 body:not([data-page="home"]) .site-header .brand-mark img{filter:brightness(0) invert(1);opacity:.9}
 body:not([data-page="home"]) .site-header .bag-button b{background:#dfe1e5;color:#202226}
 body:not([data-page="home"]) .site-header .nav-links.expanded{background:#202226;border-color:#3b3e44}
+
+.home-hero.home-photo-hero{min-height:0;padding:0;margin:0;line-height:0}.home-photo-hero .home-full-photo{display:block;width:100%;max-width:none;height:auto;margin:0;object-fit:contain;mix-blend-mode:normal}
