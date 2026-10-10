@@ -26,8 +26,10 @@ Shopping bag selections are stored locally on the visitor's device. At submissio
 
 ## Reviews
 
-Only consented, published feedback is public. There are no invented testimonials or seeded ratings. Customers can share feedback on WhatsApp; an authorized manager can add the genuine feedback, record permission and publish it in the workspace.
+Only consented, published feedback is public. There are no invented testimonials or seeded ratings. Customers submit reviews on `/reviews/`. Each submission is pending and invisible online until a website manager approves it in `/manager/`. Managers can approve, reject or unpublish. Public reviews show the server-recorded publication date and time in Pakistan time (PKT). Customer phone numbers are private and visible only to authorized managers. Submissions require consent, use a honeypot, support retry-safe request IDs and allow at most three submissions per contact number per 24 hours.
 
 ## Checks
 
 Run `node --check app.js`, `node --check manager.js` and `node --check database.js`. Additional verification covers page/asset links, public catalog access, unauthorized portal access and database authorization for website managers. See `database/` for the additive reviews migration and rollback-only permission checks. Existing inventory tables, ERP roles and website functions are reused.
+
+The About page is served as full content at both `/about/` and `/about.html` to avoid clean-URL redirect loops.
