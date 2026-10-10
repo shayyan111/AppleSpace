@@ -35,7 +35,7 @@ if(page==='reviews'){
   let requestId=sessionStorage.getItem('applespace-review-id');if(!requestId){requestId=crypto.randomUUID();sessionStorage.setItem('applespace-review-id',requestId)}
   const fields=Object.fromEntries(new FormData(form));
   try{
-   const result=await rpc('store_review_submit',{p:{...fields,rating:Number(fields.rating),consent:form.elements.namedItem('consent').checked,request_id:requestId}});
+   const result=await rpc('store_review_submit',{p:{...fields,rating:Number(fields.rating),consent:form.elements.namedItem('consent').checked,whatsapp_opt_in:form.elements.namedItem('whatsapp_opt_in').checked,request_id:requestId}});
    form.reset();sessionStorage.removeItem('applespace-review-id');status.textContent='Thank you. Your review has been received and is waiting for manager approval. Reference '+result.id.slice(0,8).toUpperCase()+'.';status.className='review-submission-success';
   }catch(e){status.textContent=e.message;status.className='error'}
   finally{button.disabled=false;button.textContent='Submit for review'}
