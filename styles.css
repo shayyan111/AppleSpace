@@ -60,3 +60,11 @@ body{background:#e9eaed}
 @media(max-width:1000px){.home-catalog-button{padding:28px 20px;gap:16px}.home-catalog-button>svg{width:54px;height:54px}.home-catalog-button strong{font-size:22px}}
 @media(max-width:760px){.home-catalogs{padding:28px 16px}.home-catalog-row{gap:10px}.home-catalog-button{min-height:170px;padding:23px 8px;gap:15px;border-radius:18px}.home-catalog-button>svg{width:48px;height:48px}.home-catalog-button strong{font-size:clamp(14px,3.8vw,21px)}.home-catalog-button small{font-size:12px;margin-bottom:6px}}
 
+
+/* Charcoal navigation across inner pages; Home keeps its light header. */
+body:not([data-page="home"]) .site-header{background:#202226f5;color:#e9eaed;border-bottom-color:#3b3e44}
+body:not([data-page="home"]) .site-header .brand-name,body:not([data-page="home"]) .site-header .nav-links a,body:not([data-page="home"]) .site-header .nav-actions button,body:not([data-page="home"]) .site-header .bag-button{color:#dfe1e5}
+body:not([data-page="home"]) .site-header .nav-links a:hover,body:not([data-page="home"]) .site-header .nav-links a[aria-current="page"]{color:#fff}
+body:not([data-page="home"]) .site-header .brand-mark img{filter:brightness(0) invert(1);opacity:.9}
+body:not([data-page="home"]) .site-header .bag-button b{background:#dfe1e5;color:#202226}
+body:not([data-page="home"]) .site-header .nav-links.expanded{background:#202226;border-color:#3b3e44}
