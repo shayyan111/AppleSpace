@@ -16,7 +16,7 @@ Open `/manager/`. The ERP owner can sign in with the existing Supabase account. 
 
 The workspace shows unsold listing fields and selling prices, supports up to eight actual product photos per listing, website title/description, publication, order-request status, and genuine customer reviews with permission. It uses `store_portal`, `store_update`, `store_reviews` and `store_review_update`; it never reads raw inventory, purchases or profit records.
 
-Public products come exclusively from `store_catalog`. iPads are inventory devices identified by their model/title; they retain the ERP's `iphone` inventory-source kind for updates and checkout. Accessories use the separate accessory inventory. Sold, unavailable and hidden stock is excluded by the database. The initial public catalog is empty because no stock is published; select stock to publish from the workspace.
+Public products come exclusively from `store_catalog`, combining eligible ERP stock with published website-only on-demand listings. iPads are inventory devices identified by their model/title; they retain the ERP's `iphone` inventory-source kind for updates and checkout. Accessories use the separate accessory inventory. Sold, unavailable and hidden ERP stock is excluded by the database. Website-only listings have no inventory quantity and are explicitly marked on demand. The initial public catalog is empty because no stock is published; select stock to publish from the workspace.
 
 Photos uploaded to the `website-products` bucket are public product assets. Do not upload seller photos or private records. Removing a photo detaches it from a listing; it does not remove the underlying storage object.
 
@@ -41,3 +41,7 @@ The optional, unchecked WhatsApp checkbox sends a boolean `whatsapp_opt_in` with
 ## Store policies
 
 Static `/privacy/`, `/returns/`, `/shipping/` and `/terms/` pages describe the current order-request checkout, review moderation and optional WhatsApp opt-in. Linked from the shared footer, compact Home links, checkout, review form and Support. Product-specific return periods, checking warranties, delivery fees and delivery estimates are confirmed in writing before purchase; no fixed amounts or deadlines are invented. Update these pages when store arrangements or payment methods change.
+
+## On-demand products
+
+Manager → On-demand products → Add on-demand product. Supports category, model, title, optional indicative selling price (blank displays Ask for price), storage, colour, condition, network status, known battery health, description, publication and up to eight photos. Create, edit, hide and delete are checked by the existing database website-manager authorization. `database/website-on-demand-products.sql` adds private website-only storage and extends the safe catalog and update functions. It never inserts ERP inventory, accessories or purchase records. Public cards/detail/search mark these as on demand and use WhatsApp enquiries; client and database reject stock-checkout attempts. Photos use the existing public product bucket and support cover/remove actions. `database/verify-website-on-demand.sql` checks the full workflow, photo limits, access control, checkout rejection and ERP isolation in a rollback-only transaction. No example on-demand products are automatically published.
