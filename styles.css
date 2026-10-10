@@ -32,3 +32,6 @@ body{background:#e9eaed}
 
 /* Original transparent AppleSpace artwork */
 .brand-with-logo{display:inline-flex;align-items:center;gap:10px}.brand-with-logo .brand-mark{position:relative;display:block;overflow:hidden;width:40px;height:40px;flex:none;margin:0;line-height:normal}.brand-mark img{position:absolute;width:72px;height:72px;max-width:none;left:-16px;top:-10px;object-fit:contain}.brand-with-logo .brand-name{font-size:21px;line-height:1;vertical-align:baseline;margin:0;letter-spacing:-.055em}.footer-top .brand-mark{width:46px;height:46px}.footer-top .brand-mark img{width:83px;height:83px;left:-18px;top:-12px}@media(max-width:760px){.brand-with-logo{gap:7px}.brand-with-logo .brand-name{font-size:19px}.brand-with-logo .brand-mark{width:34px;height:34px}.brand-mark img{width:61px;height:61px;left:-13px;top:-8px}.footer-top .brand-mark img{width:61px;height:61px;left:-13px;top:-8px}}
+
+/* Charcoal artwork with the original transparent background preserved. */
+.brand-mark img{filter:brightness(0) invert(15%)}
