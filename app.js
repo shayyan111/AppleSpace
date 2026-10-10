@@ -44,3 +44,15 @@ if(page==='reviews'){
   finally{button.disabled=false;button.textContent='Submit for review'}
  };
 }
+
+if(page==='home'){
+ const video=$('#home-hero-video'),toggle=$('#home-video-toggle');
+ if(video&&toggle){
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const update=()=>{toggle.textContent=video.paused?'Play animation ▷':'Pause animation Ⅱ';toggle.setAttribute('aria-label',video.paused?'Play animation':'Pause animation');toggle.setAttribute('aria-pressed',String(video.paused))};
+  if(reduced.matches){video.autoplay=false;video.pause()}
+  video.addEventListener('play',update);video.addEventListener('pause',update);
+  toggle.onclick=()=>{if(video.paused)video.play().catch(update);else video.pause()};
+  reduced.addEventListener('change',e=>{if(e.matches)video.pause()});update();
+ }
+}
