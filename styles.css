@@ -79,3 +79,10 @@ body:not([data-page="home"]) .site-header .nav-links.expanded{background:linear-
 @media(prefers-reduced-motion:reduce){.duo-hero-copy{animation:none}.home-photo-hero .home-full-photo{transition:none}.home-photo-hero:hover .home-full-photo{transform:none}.duo-hero-copy .button{transition:none}.duo-hero-copy .button:hover{transform:none}}
 
 .product-card .product-meta{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px}.product-finish{display:inline-flex;align-items:center;gap:6px}.product-color-dot{display:inline-block;flex:none;width:12px;height:12px;border-radius:50%;background:var(--finish-color);border:1px solid #0003;box-shadow:inset 0 1px 2px #ffffff40}
+
+/* Blend the stacked hero copy and photo into one charcoal surface. */
+@media(max-width:760px){
+ .home-hero.home-photo-hero{background:#191b1e}
+ .duo-hero-copy{background:none;padding-bottom:16px}
+ .home-photo-hero .home-full-photo{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 48px);mask-image:linear-gradient(to bottom,transparent 0,#000 48px)}
+}
