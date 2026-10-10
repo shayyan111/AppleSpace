@@ -1,6 +1,6 @@
-# ASPACE storefront
+# AppleSpace storefront
 
-The ASPACE website lives in **shayyan111/AppleSpace**. The separate AppleSpace-Management repository remains the ERP application.
+The AppleSpace website lives in **shayyan111/AppleSpace**. The separate AppleSpace-Management repository remains the ERP application.
 
 A buildless, responsive storefront in charcoal and light gray. Pages: Home, iPhones, iPads, Accessories, Reviews, Support, About Us, product details, shopping bag, checkout and `/manager/`.
 
