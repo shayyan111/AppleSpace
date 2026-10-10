@@ -62,11 +62,11 @@ body{background:#e9eaed}
 
 
 /* Charcoal navigation across inner pages; Home keeps its light header. */
-body:not([data-page="home"]) .site-header{background:#202226f5;color:#e9eaed;border-bottom-color:#3b3e44}
+body:not([data-page="home"]) .site-header{background:radial-gradient(ellipse at 50% 0%,#ffffff0d,transparent 65%),linear-gradient(110deg,#191b1f 0%,#353a42 52%,#202226 100%);color:#e9eaed;border-bottom-color:#ffffff24;box-shadow:inset 0 1px 0 #ffffff0a,0 4px 18px #10111414}
 body:not([data-page="home"]) .site-header .brand-name,body:not([data-page="home"]) .site-header .nav-links a,body:not([data-page="home"]) .site-header .nav-actions button,body:not([data-page="home"]) .site-header .bag-button{color:#dfe1e5}
 body:not([data-page="home"]) .site-header .nav-links a:hover,body:not([data-page="home"]) .site-header .nav-links a[aria-current="page"]{color:#fff}
 body:not([data-page="home"]) .site-header .brand-mark img{filter:brightness(0) invert(1);opacity:.9}
 body:not([data-page="home"]) .site-header .bag-button b{background:#dfe1e5;color:#202226}
-body:not([data-page="home"]) .site-header .nav-links.expanded{background:#202226;border-color:#3b3e44}
+body:not([data-page="home"]) .site-header .nav-links.expanded{background:linear-gradient(135deg,#25282e,#191b1f);border-color:#ffffff24}
 
 .home-hero.home-photo-hero{min-height:0;padding:0;margin:0;line-height:0}.home-photo-hero .home-full-photo{display:block;width:100%;max-width:none;height:auto;margin:0;object-fit:contain;mix-blend-mode:normal}
