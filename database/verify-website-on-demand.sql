@@ -21,10 +21,10 @@ begin
  execute 'reset role';
  if exists(select 1 from jsonb_array_elements(public.store_catalog()) x where x->>'id'=product::text) then raise exception 'Hidden on-demand listing exposed publicly'; end if;
  execute 'set local role authenticated';
- perform public.store_update(jsonb_build_object('action','on_demand_save','id',product,'title','Published demand test','model','iPad test','category','ipads','price',null,'storage','256 GB','color','Gray','published',true));
+ perform public.store_update(jsonb_build_object('action','on_demand_save','id',product,'title','Published demand test','model','iPad test','category','ipads','price',null,'price_label','Contact for price','storage','256 GB','color','Gray','published',true));
  execute 'reset role';
  select x into entry from jsonb_array_elements(public.store_catalog()) x where x->>'id'=product::text;
- if entry is null or entry->>'category'<>'ipads' or entry->>'price' is not null or (entry->>'quantity')::int<>0 then raise exception 'Published quote-only catalog data incorrect'; end if;
+ if entry is null or entry->>'category'<>'ipads' or entry->>'price' is not null or entry->>'price_label'<>'Contact for price' or (entry->>'quantity')::int<>0 then raise exception 'Published quote-only catalog data incorrect'; end if;
  if entry::text ~ '"(purchase_price|profit|created_by|imei_1|imei_2|supplier_id)"' then raise exception 'Private fields exposed'; end if;
  execute 'set local role authenticated';
  perform public.store_update(jsonb_build_object('action','on_demand_save','id',product,'title','Priced demand test','model','Accessory test','category','accessories','price',15000,'published',true));
