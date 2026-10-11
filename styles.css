@@ -86,3 +86,5 @@ body:not([data-page="home"]) .site-header .nav-links.expanded{background:linear-
  .duo-hero-copy{background:none;padding-bottom:16px}
  .home-photo-hero .home-full-photo{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 48px);mask-image:linear-gradient(to bottom,transparent 0,#000 48px)}
 }
+
+@media(min-width:761px){.nav-links{gap:20px}.nav-inner{gap:20px}}
