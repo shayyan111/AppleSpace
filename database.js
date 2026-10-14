@@ -31,4 +31,22 @@ export async function compressPhoto(file){
  finally{source?.close?.();if(url)URL.revokeObjectURL(url)}
 }
 export async function uploadPhoto(file){const s=session(),t=await token();if(!s||!t)throw Error('Sign in first.');const compressed=await compressPhoto(file);const path=s.user.id+'/'+crypto.randomUUID()+'.'+({'image/jpeg':'jpg','image/png':'png','image/webp':'webp'}[compressed.type]);const r=await fetch(databaseUrl+'/storage/v1/object/website-products/'+path,{method:'POST',signal:AbortSignal.timeout(20000),headers:{apikey:key,Authorization:'Bearer '+t,'Content-Type':compressed.type},body:compressed});if(!r.ok)throw Error('Photo upload failed. Check your website access.');return path}
-export const photoUrl=(path)=>databaseUrl+'/storage/v1/object/public/website-products/'+path.split('/').map(encodeURIComponent).join('/');
+// Opaque references become document-local blob URLs; originals are never linked.
+export const photoAttributes=ref=>'src="/images/photo-placeholder.svg" data-product-photo="'+encodeURIComponent(ref)+'"';
+const photoCache=new Map();
+async function loadPhoto(img){
+ const ref=decodeURIComponent(img.dataset.productPhoto);if(img.dataset.photoLoading)return;img.dataset.photoLoading='1';
+ try{
+  if(!photoCache.has(ref))photoCache.set(ref,(async()=>{
+   const t=document.body.dataset.page==='manager'?await token():null;
+   const r=await fetch(databaseUrl+'/functions/v1/product-photo',{method:'POST',signal:AbortSignal.timeout(20000),headers:{apikey:key,'Content-Type':'application/json',...(t?{Authorization:'Bearer '+t}:{})},body:JSON.stringify({ref})});
+   if(!r.ok)throw Error('Photo unavailable');return URL.createObjectURL(await r.blob());
+  })().catch(e=>{photoCache.delete(ref);throw e}));
+  img.src=await photoCache.get(ref);
+ }catch{img.alt=(img.alt||'Product')+' — photo temporarily unavailable';delete img.dataset.photoLoading;}
+}
+const photoObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){photoObserver.unobserve(e.target);loadPhoto(e.target)}},{rootMargin:'300px'});
+function scanPhotos(){document.querySelectorAll('img[data-product-photo]:not([data-photo-observed])').forEach(img=>{img.dataset.photoObserved='1';photoObserver.observe(img)})}
+new MutationObserver(scanPhotos).observe(document.documentElement,{childList:true,subtree:true});
+scanPhotos();
+window.addEventListener('pagehide',event=>{if(event.persisted)return;for(const p of photoCache.values())p.then(URL.revokeObjectURL).catch(()=>{});photoCache.clear()});
