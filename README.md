@@ -61,3 +61,7 @@ Deploy `functions/product-photo/index.ts` and `watermark.ts` together as the `pr
 Product-photo serves compressed, permanently watermarked JPEG previews and stores them under `website-products/__watermarked/v1/`. Authorization is checked before reading cached previews. Original objects remain in the private bucket. Unpublishing blocks future preview requests, but already downloaded images cannot be recalled. Public product images can always be saved/screenshotted; this feature protects original storage URLs and unpublished files, not the visible image from copying.
 
 Rollout: deploy the resolver and function, then both storefront hosts, then replace catalog paths with opaque IDs and set the website-products bucket private. Browser images use document-local blob URLs. Old public URLs may stay in existing browser/CDN caches until their cache entries expire. Product uploads remain compressed before storage.
+
+## Automatic WhatsApp order updates
+
+See `functions/order-notifications/SETUP.md` for activation, templates, credentials and scheduler setup. Sending defaults OFF. The new manager Messages tab shows recent notification events. Consent is separate from marketing. SQL and mocked worker tests cover duplicate prevention, role isolation, opt-out and provider outcomes.
